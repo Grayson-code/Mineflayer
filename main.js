@@ -222,6 +222,23 @@ client.on("messageCreate", async (message) => {
     channel.send(`${punishmentlist}`);
   }
 });
+client.on("messageCreate", async (message) => {
+  if (message.content.includes("!playercount")) {
+    let channel = message.channel;
+    let link = "https://mcsrvstat.us/server/top.jartex.fun";
+    const browser = await puppeteer.launch({ headless: false });
+    const page = await browser.newPage();
+    await page.goto(`${link}`);
+
+    let playercount = await page.evaluate(() => {
+      const pc = document.querySelector(".table.table-borderless");
+      return pc.innerText;
+    });
+
+    browser.close();
+    channel.send("`"+`${playercount}`+"`");
+  }
+});
 
 wok.on("databaseConnected", async (connection, state) => {
   const model = connection.models["wokcommands-languages"];
