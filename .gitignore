@@ -1,0 +1,6 @@
+/#info
+/.env
+/config.json
+/node_modules
+/tester
+/timedping.js
