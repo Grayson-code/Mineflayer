@@ -74,6 +74,7 @@ client.on("ready", async () => {
   });
 });
 
+
 client.on("messageCreate", async (message) => {
   if (message.channel.id === "896047293957013524") {
     let owner = "787977601976631336";
@@ -182,7 +183,7 @@ client.on("messageCreate", async (message) => {
 });
 
 client.on('messageCreate', async (message) => {
-  if (message.author.id === "787977601976631336") {
+  if (message.author.id == "787977601976631336") {
     if (message.content === "!leave") {
       bot.quit();
     }
