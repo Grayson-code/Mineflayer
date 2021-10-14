@@ -84,7 +84,7 @@ $ yarn
 # Run the project
 $ yarn start
 
-# The server will initialize in the <http://localhost:3000>
+# The prismerine server will initialize  in the <http://localhost:3001>
 ```
 
 ## :memo: License ##
