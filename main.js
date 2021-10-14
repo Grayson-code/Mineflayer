@@ -188,7 +188,11 @@ client.on('messageCreate', async (message) => {
     }
   }
 })
-
+/*
+This is some basic web scraping functionality
+If you do want to know more about web scraping i would suggest you first learn basic js , then learn more about
+pupetteer from their api documentation.
+*/
 client.on("messageCreate", async (message) => {
   if (message.content.includes("!bans")) {
     let split = message.content.trim().split(" ");
@@ -253,6 +257,12 @@ client.on("messageCreate", async (message) => {
     channel.send("`"+`${playercount}`+"`");
   }
 });
+
+client.on('interactionCreate', async (message) => {
+  if (message.content.includes(`!report`)) {
+    interaction.reply(``)
+  }
+})
 
 wok.on("databaseConnected", async (connection, state) => {
   const model = connection.models["wokcommands-languages"];
