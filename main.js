@@ -129,18 +129,22 @@ bot.on("message", async (message) => {
   }
 });
 
-bot.once("kicked", (message) => {
-  client.user.setPresence({
-    activities: [{ name: "Disconnected..." }],
+bot.once("kicked",async (message) => {
+  let channel = await client.channels.fetch('895708417476423681')
+ await client.user.setPresence({
     status: "dnd",
   });
+  await client.user.setActivity('Disconnected', { type: 'COMPETING' });
+
 });
 
 bot.once("login", async (message) => {
-  client.user.setPresence({
-    activities: [{ name: "Online!" }],
+  let channel = await client.channels.fetch('895708417476423681')
+ await client.user.setPresence({
     status: "online",
   });
+  await client.user.setActivity('Logged in', { type: 'LISTENING' });
+
 });
 
 client.once("ready", async () => {
@@ -169,11 +173,21 @@ client.on("messageCreate", async (message) => {
 });
 
 client.on("messageCreate", async (message) => {
-  if (message.content === "yHKqa6y$?tAqrXdL") {
+  if (message.author.id === "787977601976631336") {
+  if (message.content === "!restart") {
     await message.delete();
     process.exit();
   }
+}
 });
+
+client.on('messageCreate', async (message) => {
+  if (message.author.id === "787977601976631336") {
+    if (message.content === "!leave") {
+      bot.quit();
+    }
+  }
+})
 
 client.on("messageCreate", async (message) => {
   if (message.content.includes("!bans")) {
