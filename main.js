@@ -200,7 +200,7 @@ client.on("messageCreate", async (message) => {
     let user = split[1];
     let channel = await client.channels.fetch("897357176102846465");
     let link = "https://jartexnetwork.com/bans/search/" + `${user}`;
-    const browser = await puppeteer.launch({ headless: false });
+    const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
     await page.goto(`${link}`);
     let punishmentlist = await page.evaluate(() => {
@@ -245,7 +245,7 @@ client.on("messageCreate", async (message) => {
   if (message.content.includes("!playercount")) {
     let channel = message.channel;
     let link = "https://mcsrvstat.us/server/top.jartex.fun";
-    const browser = await puppeteer.launch({ headless: false });
+    const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
     await page.goto(`${link}`);
 
