@@ -1,3 +1,5 @@
+# This was an old project and is no longer maintained 
+
 <div align="center" id="top"> 
   <img src="./.github/app.gif" alt="Mineflayer Bot" />
 
